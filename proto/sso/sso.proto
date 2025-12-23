@@ -22,33 +22,33 @@ message RegisterRequest {
   string email = 1;
   string password = 2;
   string username = 3;
-  string app_id = 4; // ID приложения, для которого регистрируется пользователь
+  int64 app_id = 4; // ID приложения, для которого регистрируется пользователь
 }
 
 // Ответ на регистрацию
 message RegisterResponse {
   bool success = 1;
-  string user_id = 2;
+  int64 user_id = 2;
 }
 
 // Запрос на авторизацию
 message LoginRequest {
   string email = 1;
   string password = 2;
-  string app_id = 3; // ID приложения, для которого производится авторизация
+  int64 app_id = 3; // ID приложения, для которого производится авторизация
 }
 
 // Ответ на авторизацию
 message LoginResponse {
   bool success = 1;
-  string user_id = 2;
+  int64 user_id = 2;
   string token = 3;
 }
 
 // Запрос на выход из системы
 message LogoutRequest {
   string token = 1;
-  string app_id = 2; // ID приложения, из которого производится выход
+  int64 app_id = 2; // ID приложения, из которого производится выход
 }
 
 // Ответ на выход из системы

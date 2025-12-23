@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        v6.33.2
-// source: sso.proto
+// source: sso/sso.proto
 
 package ssov1
 
@@ -27,14 +27,14 @@ type RegisterRequest struct {
 	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
 	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
 	Username      string                 `protobuf:"bytes,3,opt,name=username,proto3" json:"username,omitempty"`
-	AppId         string                 `protobuf:"bytes,4,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"` // ID приложения, для которого регистрируется пользователь
+	AppId         int64                  `protobuf:"varint,4,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"` // ID приложения, для которого регистрируется пользователь
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RegisterRequest) Reset() {
 	*x = RegisterRequest{}
-	mi := &file_sso_proto_msgTypes[0]
+	mi := &file_sso_sso_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -46,7 +46,7 @@ func (x *RegisterRequest) String() string {
 func (*RegisterRequest) ProtoMessage() {}
 
 func (x *RegisterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_proto_msgTypes[0]
+	mi := &file_sso_sso_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -59,7 +59,7 @@ func (x *RegisterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterRequest.ProtoReflect.Descriptor instead.
 func (*RegisterRequest) Descriptor() ([]byte, []int) {
-	return file_sso_proto_rawDescGZIP(), []int{0}
+	return file_sso_sso_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *RegisterRequest) GetEmail() string {
@@ -83,25 +83,25 @@ func (x *RegisterRequest) GetUsername() string {
 	return ""
 }
 
-func (x *RegisterRequest) GetAppId() string {
+func (x *RegisterRequest) GetAppId() int64 {
 	if x != nil {
 		return x.AppId
 	}
-	return ""
+	return 0
 }
 
 // Ответ на регистрацию
 type RegisterResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
-	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        int64                  `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RegisterResponse) Reset() {
 	*x = RegisterResponse{}
-	mi := &file_sso_proto_msgTypes[1]
+	mi := &file_sso_sso_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -113,7 +113,7 @@ func (x *RegisterResponse) String() string {
 func (*RegisterResponse) ProtoMessage() {}
 
 func (x *RegisterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_proto_msgTypes[1]
+	mi := &file_sso_sso_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -126,7 +126,7 @@ func (x *RegisterResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterResponse.ProtoReflect.Descriptor instead.
 func (*RegisterResponse) Descriptor() ([]byte, []int) {
-	return file_sso_proto_rawDescGZIP(), []int{1}
+	return file_sso_sso_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *RegisterResponse) GetSuccess() bool {
@@ -136,11 +136,11 @@ func (x *RegisterResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *RegisterResponse) GetUserId() string {
+func (x *RegisterResponse) GetUserId() int64 {
 	if x != nil {
 		return x.UserId
 	}
-	return ""
+	return 0
 }
 
 // Запрос на авторизацию
@@ -148,14 +148,14 @@ type LoginRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
 	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
-	AppId         string                 `protobuf:"bytes,3,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"` // ID приложения, для которого производится авторизация
+	AppId         int64                  `protobuf:"varint,3,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"` // ID приложения, для которого производится авторизация
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *LoginRequest) Reset() {
 	*x = LoginRequest{}
-	mi := &file_sso_proto_msgTypes[2]
+	mi := &file_sso_sso_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -167,7 +167,7 @@ func (x *LoginRequest) String() string {
 func (*LoginRequest) ProtoMessage() {}
 
 func (x *LoginRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_proto_msgTypes[2]
+	mi := &file_sso_sso_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -180,7 +180,7 @@ func (x *LoginRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoginRequest.ProtoReflect.Descriptor instead.
 func (*LoginRequest) Descriptor() ([]byte, []int) {
-	return file_sso_proto_rawDescGZIP(), []int{2}
+	return file_sso_sso_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *LoginRequest) GetEmail() string {
@@ -197,18 +197,18 @@ func (x *LoginRequest) GetPassword() string {
 	return ""
 }
 
-func (x *LoginRequest) GetAppId() string {
+func (x *LoginRequest) GetAppId() int64 {
 	if x != nil {
 		return x.AppId
 	}
-	return ""
+	return 0
 }
 
 // Ответ на авторизацию
 type LoginResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
-	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        int64                  `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	Token         string                 `protobuf:"bytes,3,opt,name=token,proto3" json:"token,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -216,7 +216,7 @@ type LoginResponse struct {
 
 func (x *LoginResponse) Reset() {
 	*x = LoginResponse{}
-	mi := &file_sso_proto_msgTypes[3]
+	mi := &file_sso_sso_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -228,7 +228,7 @@ func (x *LoginResponse) String() string {
 func (*LoginResponse) ProtoMessage() {}
 
 func (x *LoginResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_proto_msgTypes[3]
+	mi := &file_sso_sso_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -241,7 +241,7 @@ func (x *LoginResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoginResponse.ProtoReflect.Descriptor instead.
 func (*LoginResponse) Descriptor() ([]byte, []int) {
-	return file_sso_proto_rawDescGZIP(), []int{3}
+	return file_sso_sso_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *LoginResponse) GetSuccess() bool {
@@ -251,11 +251,11 @@ func (x *LoginResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *LoginResponse) GetUserId() string {
+func (x *LoginResponse) GetUserId() int64 {
 	if x != nil {
 		return x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *LoginResponse) GetToken() string {
@@ -269,14 +269,14 @@ func (x *LoginResponse) GetToken() string {
 type LogoutRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Token         string                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
-	AppId         string                 `protobuf:"bytes,2,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"` // ID приложения, из которого производится выход
+	AppId         int64                  `protobuf:"varint,2,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"` // ID приложения, из которого производится выход
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *LogoutRequest) Reset() {
 	*x = LogoutRequest{}
-	mi := &file_sso_proto_msgTypes[4]
+	mi := &file_sso_sso_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -288,7 +288,7 @@ func (x *LogoutRequest) String() string {
 func (*LogoutRequest) ProtoMessage() {}
 
 func (x *LogoutRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_proto_msgTypes[4]
+	mi := &file_sso_sso_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -301,7 +301,7 @@ func (x *LogoutRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LogoutRequest.ProtoReflect.Descriptor instead.
 func (*LogoutRequest) Descriptor() ([]byte, []int) {
-	return file_sso_proto_rawDescGZIP(), []int{4}
+	return file_sso_sso_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *LogoutRequest) GetToken() string {
@@ -311,11 +311,11 @@ func (x *LogoutRequest) GetToken() string {
 	return ""
 }
 
-func (x *LogoutRequest) GetAppId() string {
+func (x *LogoutRequest) GetAppId() int64 {
 	if x != nil {
 		return x.AppId
 	}
-	return ""
+	return 0
 }
 
 // Ответ на выход из системы
@@ -328,7 +328,7 @@ type LogoutResponse struct {
 
 func (x *LogoutResponse) Reset() {
 	*x = LogoutResponse{}
-	mi := &file_sso_proto_msgTypes[5]
+	mi := &file_sso_sso_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -340,7 +340,7 @@ func (x *LogoutResponse) String() string {
 func (*LogoutResponse) ProtoMessage() {}
 
 func (x *LogoutResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_proto_msgTypes[5]
+	mi := &file_sso_sso_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -353,7 +353,7 @@ func (x *LogoutResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LogoutResponse.ProtoReflect.Descriptor instead.
 func (*LogoutResponse) Descriptor() ([]byte, []int) {
-	return file_sso_proto_rawDescGZIP(), []int{5}
+	return file_sso_sso_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *LogoutResponse) GetSuccess() bool {
@@ -363,30 +363,30 @@ func (x *LogoutResponse) GetSuccess() bool {
 	return false
 }
 
-var File_sso_proto protoreflect.FileDescriptor
+var File_sso_sso_proto protoreflect.FileDescriptor
 
-const file_sso_proto_rawDesc = "" +
+const file_sso_sso_proto_rawDesc = "" +
 	"\n" +
-	"\tsso.proto\x12\x03sso\"v\n" +
+	"\rsso/sso.proto\x12\x03sso\"v\n" +
 	"\x0fRegisterRequest\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\x12\x1a\n" +
 	"\busername\x18\x03 \x01(\tR\busername\x12\x15\n" +
-	"\x06app_id\x18\x04 \x01(\tR\x05appId\"E\n" +
+	"\x06app_id\x18\x04 \x01(\x03R\x05appId\"E\n" +
 	"\x10RegisterResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\tR\x06userId\"W\n" +
+	"\auser_id\x18\x02 \x01(\x03R\x06userId\"W\n" +
 	"\fLoginRequest\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\x12\x15\n" +
-	"\x06app_id\x18\x03 \x01(\tR\x05appId\"X\n" +
+	"\x06app_id\x18\x03 \x01(\x03R\x05appId\"X\n" +
 	"\rLoginResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x14\n" +
+	"\auser_id\x18\x02 \x01(\x03R\x06userId\x12\x14\n" +
 	"\x05token\x18\x03 \x01(\tR\x05token\"<\n" +
 	"\rLogoutRequest\x12\x14\n" +
 	"\x05token\x18\x01 \x01(\tR\x05token\x12\x15\n" +
-	"\x06app_id\x18\x02 \x01(\tR\x05appId\"*\n" +
+	"\x06app_id\x18\x02 \x01(\x03R\x05appId\"*\n" +
 	"\x0eLogoutResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess2\xa1\x01\n" +
 	"\x03SSO\x127\n" +
@@ -395,19 +395,19 @@ const file_sso_proto_rawDesc = "" +
 	"\x06Logout\x12\x12.sso.LogoutRequest\x1a\x13.sso.LogoutResponseB\x14Z\x12moyko.sso.v1;ssov1b\x06proto3"
 
 var (
-	file_sso_proto_rawDescOnce sync.Once
-	file_sso_proto_rawDescData []byte
+	file_sso_sso_proto_rawDescOnce sync.Once
+	file_sso_sso_proto_rawDescData []byte
 )
 
-func file_sso_proto_rawDescGZIP() []byte {
-	file_sso_proto_rawDescOnce.Do(func() {
-		file_sso_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_sso_proto_rawDesc), len(file_sso_proto_rawDesc)))
+func file_sso_sso_proto_rawDescGZIP() []byte {
+	file_sso_sso_proto_rawDescOnce.Do(func() {
+		file_sso_sso_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_sso_sso_proto_rawDesc), len(file_sso_sso_proto_rawDesc)))
 	})
-	return file_sso_proto_rawDescData
+	return file_sso_sso_proto_rawDescData
 }
 
-var file_sso_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
-var file_sso_proto_goTypes = []any{
+var file_sso_sso_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_sso_sso_proto_goTypes = []any{
 	(*RegisterRequest)(nil),  // 0: sso.RegisterRequest
 	(*RegisterResponse)(nil), // 1: sso.RegisterResponse
 	(*LoginRequest)(nil),     // 2: sso.LoginRequest
@@ -415,7 +415,7 @@ var file_sso_proto_goTypes = []any{
 	(*LogoutRequest)(nil),    // 4: sso.LogoutRequest
 	(*LogoutResponse)(nil),   // 5: sso.LogoutResponse
 }
-var file_sso_proto_depIdxs = []int32{
+var file_sso_sso_proto_depIdxs = []int32{
 	0, // 0: sso.SSO.Register:input_type -> sso.RegisterRequest
 	2, // 1: sso.SSO.Login:input_type -> sso.LoginRequest
 	4, // 2: sso.SSO.Logout:input_type -> sso.LogoutRequest
@@ -429,26 +429,26 @@ var file_sso_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_sso_proto_init() }
-func file_sso_proto_init() {
-	if File_sso_proto != nil {
+func init() { file_sso_sso_proto_init() }
+func file_sso_sso_proto_init() {
+	if File_sso_sso_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_sso_proto_rawDesc), len(file_sso_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_sso_sso_proto_rawDesc), len(file_sso_sso_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_sso_proto_goTypes,
-		DependencyIndexes: file_sso_proto_depIdxs,
-		MessageInfos:      file_sso_proto_msgTypes,
+		GoTypes:           file_sso_sso_proto_goTypes,
+		DependencyIndexes: file_sso_sso_proto_depIdxs,
+		MessageInfos:      file_sso_sso_proto_msgTypes,
 	}.Build()
-	File_sso_proto = out.File
-	file_sso_proto_goTypes = nil
-	file_sso_proto_depIdxs = nil
+	File_sso_sso_proto = out.File
+	file_sso_sso_proto_goTypes = nil
+	file_sso_sso_proto_depIdxs = nil
 }
